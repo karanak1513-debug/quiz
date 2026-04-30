@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBA Finance Quiz Pro | Premium MCQ Platform</title>
+    <meta name="description" content="Professional MCQ quiz platform for BBA Banking & Finance students. Practice with real questions across multiple categories.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">Finance <span class="text-neon">Quiz Pro</span></div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+            <span class="icon dark-icon">🌙</span>
+            <span class="icon light-icon hidden">☀️</span>
+        </button>
+    </nav>
+
+    <main class="app-container">
+        <!-- Home Screen -->
+        <section id="home-screen" class="screen active">
+            <div class="glass-card hero-card">
+                <div class="badge">Professional Quiz Platform</div>
+                <h1>BBA Finance <span class="text-neon">Quiz Pro</span></h1>
+                <p class="subtitle">Master Banking, Finance, and Economics with our advanced MCQ engine. Practice with real exam questions.</p>
+                
+                <div class="last-score-container glass-card hidden" id="last-score-display">
+                    <div class="last-score-header">
+                        <h3>📊 Last Performance</h3>
+                        <span id="last-score-grade" class="badge">Grade A</span>
+                    </div>
+                    <div class="score-stats-grid">
+                        <div class="score-stat-box">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-details">
+                                <span class="label">Score</span>
+                                <span class="value text-neon" id="last-score-val">0/10</span>
+                            </div>
+                        </div>
+                        <div class="score-stat-box">
+                            <div class="stat-icon">🕒</div>
+                            <div class="stat-details">
+                                <span class="label">Date</span>
+                                <span class="value" id="last-score-date">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="start-btn" class="btn btn-primary">Start New Quiz</button>
+                    <button id="view-last-btn" class="btn btn-outline">View Last Result</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Selection -->
+        <section id="category-screen" class="screen">
+            <div class="glass-card">
+                <h2>Select <span class="text-neon">Category</span></h2>
+                <div class="category-grid" id="category-list">
+                    <!-- Categories will be injected here -->
+                </div>
+                <div class="navigation-controls">
+                    <button class="btn btn-back back-to-home">Back</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Difficulty Selection -->
+        <section id="difficulty-screen" class="screen">
+            <div class="glass-card">
+                <h2>Choose <span class="text-neon">Difficulty</span></h2>
+                <div class="difficulty-options">
+                    <button class="diff-card" data-diff="Easy">
+                        <div class="diff-icon">🌱</div>
+                        <h3>Easy</h3>
+                        <p>Foundational concepts</p>
+                    </button>
+                    <button class="diff-card" data-diff="Medium">
+                        <div class="diff-icon">⚖️</div>
+                        <h3>Medium</h3>
+                        <p>Intermediate applications</p>
+                    </button>
+                    <button class="diff-card" data-diff="Hard">
+                        <div class="diff-icon">🔥</div>
+                        <h3>Hard</h3>
+                        <p>Advanced analysis</p>
+                    </button>
+                </div>
+                <div class="navigation-controls">
+                    <button class="btn btn-back back-to-category">Back</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="screen">
+            <div class="quiz-header glass-card">
+                <div class="quiz-info">
+                    <span id="quiz-category-label" class="badge">Category</span>
+                    <span id="quiz-timer" class="timer text-neon">00:00</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="question-count">
+                    Question <span id="current-question-num">1</span> of 10
+                </div>
+            </div>
+
+            <div class="question-card glass-card">
+                <h3 id="question-text">Loading question...</h3>
+                <div class="options-container" id="options-container">
+                    <!-- Options will be injected here -->
+                </div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="prev-btn" class="btn btn-outline" disabled>Previous</button>
+                <button id="next-btn" class="btn btn-primary">Next</button>
+                <button id="submit-btn" class="btn btn-neon hidden">Submit Quiz</button>
+            </div>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen" class="screen">
+            <div class="glass-card result-card">
+                <div class="result-header">
+                    <div id="result-status-icon" class="status-icon">✅</div>
+                    <h2 id="result-status-text">Congratulations!</h2>
+                    <p id="result-grade" class="text-neon">Grade: A+</p>
+                </div>
+
+                <div class="result-stats">
+                    <div class="stat-box">
+                        <span class="stat-val" id="res-score">0</span>
+                        <span class="stat-label">Score</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-val" id="res-percent">0%</span>
+                        <span class="stat-label">Percentage</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-val" id="res-correct">0</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-val" id="res-wrong">0</span>
+                        <span class="stat-label">Wrong</span>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="review-btn" class="btn btn-outline">Review Answers</button>
+                    <button id="restart-btn" class="btn btn-primary">Restart Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Screen -->
+        <section id="review-screen" class="screen">
+            <div class="glass-card">
+                <h2>Review <span class="text-neon">Answers</span></h2>
+                <div id="review-container" class="review-list">
+                    <!-- Review items injected here -->
+                </div>
+                <div class="navigation-controls">
+                    <button id="back-to-result" class="btn btn-primary">Back to Result</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
