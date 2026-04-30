@@ -123,6 +123,20 @@ function setupEventListeners() {
     
     const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) themeBtn.onclick = toggleTheme;
+
+    // Chatbot Toggle
+    const chatToggleBtn = document.getElementById('chat-toggle-btn');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const closeChatBtn = document.getElementById('close-chat');
+
+    if (chatToggleBtn && chatbotContainer && closeChatBtn) {
+        chatToggleBtn.onclick = () => {
+            chatbotContainer.classList.toggle('open');
+        };
+        closeChatBtn.onclick = () => {
+            chatbotContainer.classList.remove('open');
+        };
+    }
 }
 
 function showScreen(screenId) {
